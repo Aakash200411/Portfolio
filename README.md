@@ -11,6 +11,6 @@ This portfolio showcases my skills, projects, and experience in Artificial Intel
 ## 🎯 Features
 - Clean and responsive UI
 - Sections for About Me, Skills, Projects, and Contact
-- Hosted on Railway for easy accessibility
+- Hosted on Github for easy accessibility
 
 Thank you for visiting my portfolio! 😊
