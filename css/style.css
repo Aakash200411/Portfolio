@@ -486,7 +486,7 @@ main {
 }
 
 .project-main-info span,
-h3 {
+h3,{
   margin: 0;
   text-transform: uppercase;
 }
