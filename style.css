@@ -75,7 +75,7 @@ p { margin: 0 0 1em; }
 .main-nav a:hover { color: var(--ink); border-bottom: 1px solid var(--ink-soft); }
 .main-nav a.active { color: var(--ink); border-bottom: 1px solid var(--amber); }
 
-.nav-resume { color: var(--paper); background: var(--ink); padding: 8px 16px; border: 1px solid var(--ink); }
+.nav-resume { color: #ffffff; background: var(--ink); padding: 8px 16px; border: 1px solid var(--ink); }
 .nav-resume:hover { background: var(--amber); border-color: var(--amber); color: var(--paper); }
 
 /* ============================================
