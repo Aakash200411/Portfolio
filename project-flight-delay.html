@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flight Delay Prediction — Aakash Lodha</title>
+<meta name="description" content="Regression model comparison for flight delay prediction.">
+<meta name="author" content="Aakash Lodha">
+<meta property="og:title" content="Flight Delay Prediction — Aakash Lodha">
+<meta property="og:description" content="Regression model comparison for flight delay prediction.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aakash200411.github.io/Portfolio/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="row header-row">
+    <a href="index.html" class="wordmark">Aakash Lodha</a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="contact.html">Contact</a>
+      <a href="resume.pdf" class="nav-resume" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="row"><a href="projects.html" class="back-link">&larr; All projects</a></div>
+<section class="row detail-head">
+  <p class="card-tools">Python &middot; Scikit-learn &middot; Pandas</p>
+  <h1>Flight delay prediction</h1>
+  <p class="detail-tagline">Predicting U.S. flight delays with four regression models, evaluated separately on arrivals, departures, and the combined dataset, using the DOT flight delay dataset on Kaggle.</p>
+  <div class="detail-links"><a href="https://github.com/Aakash200411/Flight-Delay-Prediction" target="_blank" rel="noopener">Repository</a> <a href="https://www.kaggle.com/datasets/usdot/flight-delays" target="_blank" rel="noopener">Dataset</a></div>
+</section>
+<div class="row detail-body">
+  <h2>Overview</h2>
+  <div class="content"><p>I trained and compared Linear Regression, Ridge Regression, Random Forest, and KNN to predict delay length in minutes, then evaluated each on three separate slices of the data &mdash; combined, arrivals only, and departures only &mdash; since delays behave differently depending on which end of the flight you're predicting.</p></div>
+</div>
+<div class="row detail-body">
+  <h2>Key results</h2>
+  <div class="content"><div class="stat-line"><span class="stat-val">13.4 min</span><span class="stat-lbl">lowest MAE overall &mdash; Random Forest, combined dataset</span></div>
+<div class="stat-line"><span class="stat-val">0.799</span><span class="stat-lbl">best F1 score &mdash; Linear/Ridge Regression, arrivals</span></div>
+<div class="stat-line"><span class="stat-val">13.9 min</span><span class="stat-lbl">lowest MAE &mdash; KNN, departures</span></div>
+<p>No single model won across every metric and every subset. Random Forest had the best raw error on the combined data, but Linear and Ridge Regression classified delays more accurately for arrivals specifically, and KNN handled departures &mdash; the noisier of the two &mdash; best.</p></div>
+</div>
+<div class="row detail-body">
+  <h2>Takeaway</h2>
+  <div class="content"><p>Model selection has to depend on the actual use case: minimizing average error (MAE) and correctly flagging "will this be significantly delayed" (F1/classification) aren't the same objective, and the best model changed depending on which one mattered and which leg of the flight was being predicted.</p></div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="row footer-row">
+    <span>Aakash Lodha</span>
+    <span>Mumbai, India</span>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

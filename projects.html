@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Aakash Lodha</title>
+<meta name="description" content="Data analytics, machine learning, and software projects by Aakash Lodha.">
+<meta name="author" content="Aakash Lodha">
+<meta property="og:title" content="Projects — Aakash Lodha">
+<meta property="og:description" content="Data analytics, machine learning, and software projects by Aakash Lodha.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aakash200411.github.io/Portfolio/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="row header-row">
+    <a href="index.html" class="wordmark">Aakash Lodha</a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="contact.html">Contact</a>
+      <a href="resume.pdf" class="nav-resume" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="row" style="padding-top:60px;">
+  <h1 style="font-size:clamp(30px,4vw,42px);">Projects</h1>
+  <p style="margin-top:16px;max-width:60ch;color:var(--ink-soft);font-size:17.5px;">Grouped into the data &amp; analytics work I do most, and the broader software and AI projects I build for fun or with a team.</p>
+</section>
+
+<section class="section">
+  <p class="row eyebrow-cat">Data &amp; analytics</p>
+  <div class="row" style="padding:0;">
+    <div class="project-grid">
+    <a class="project-card" href="project-telecom-churn.html">
+      <p class="card-tools">Power BI, DAX, Power Query</p>
+      <h3>Telecom customer churn analysis</h3>
+      <p>Found that contract type predicts churn far better than pricing or usage — 46.3% for month-to-month vs 2.8% for two-year plans.</p>
+      <span class="card-link">View project</span>
+    </a>
+    <a class="project-card" href="project-hr-attrition.html">
+      <p class="card-tools">Power BI, DAX, Power Query</p>
+      <h3>HR attrition analytics</h3>
+      <p>Employees working overtime leave at nearly 3× the rate of everyone else — the largest gap in the dataset.</p>
+      <span class="card-link">View project</span>
+    </a>
+    <a class="project-card" href="project-ecommerce.html">
+      <p class="card-tools">Python, Pandas, Plotly</p>
+      <h3>E-commerce sales &amp; margin analysis</h3>
+      <p>Furniture nearly matches Technology in revenue but converts a fraction of the margin — a pricing problem hiding behind a sales number.</p>
+      <span class="card-link">View project</span>
+    </a>
+    <a class="project-card" href="project-flight-delay.html">
+      <p class="card-tools">Python, Scikit-learn</p>
+      <h3>Flight delay prediction</h3>
+      <p>Compared four regression models across arrivals, departures, and combined data — no single model wins on every metric.</p>
+      <span class="card-link">View project</span>
+    </a>
+    <a class="project-card" href="project-t20-worldcup.html">
+      <p class="card-tools">Python, Pandas, Streamlit</p>
+      <h3>T20 World Cup 2024 analysis</h3>
+      <p>Built a data-driven Dream Team from ball-by-ball match data, ranking players by boundary percentage rather than reputation.</p>
+      <span class="card-link">View project</span>
+    </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <p class="row eyebrow-cat">Software &amp; AI engineering</p>
+  <div class="row" style="padding:0;">
+    <div class="project-grid">
+    <a class="project-card" href="project-visionix.html">
+      <p class="card-tools">Python, YOLOv8, LLMs</p>
+      <h3>VisioNiX</h3>
+      <p>A multimodal AI assistant combining computer vision, OCR, and LLMs for visual question answering — built with a 4-person team.</p>
+      <span class="card-link">View project</span>
+    </a>
+    <a class="project-card" href="project-ai-erp.html">
+      <p class="card-tools">React, Node.js, Express, MongoDB</p>
+      <h3>AI Assistant ERP</h3>
+      <p>An AI chatbot layered on top of an ERP system, handling FAQ-style queries and business data through one conversational interface.</p>
+      <span class="card-link">View project</span>
+    </a>
+    <a class="project-card" href="project-cms.html">
+      <p class="card-tools">PHP, MySQL, JavaScript</p>
+      <h3>Content Management System</h3>
+      <p>A role-based CMS for managing users, attendance, marks, and academic resources — the system behind my VESIT internship work.</p>
+      <span class="card-link">View project</span>
+    </a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="row footer-row">
+    <span>Aakash Lodha</span>
+    <span>Mumbai, India</span>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Assistant ERP — Aakash Lodha</title>
+<meta name="description" content="Full-stack ERP system with an integrated AI chatbot.">
+<meta name="author" content="Aakash Lodha">
+<meta property="og:title" content="AI Assistant ERP — Aakash Lodha">
+<meta property="og:description" content="Full-stack ERP system with an integrated AI chatbot.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aakash200411.github.io/Portfolio/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="row header-row">
+    <a href="index.html" class="wordmark">Aakash Lodha</a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="contact.html">Contact</a>
+      <a href="resume.pdf" class="nav-resume" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="row"><a href="projects.html" class="back-link">&larr; All projects</a></div>
+<section class="row detail-head">
+  <p class="card-tools">React &middot; Node.js &middot; Express &middot; MongoDB</p>
+  <h1>AI Assistant ERP</h1>
+  <p class="detail-tagline">A full-stack ERP system with an AI chatbot layered on top, so users can query business and institutional data conversationally instead of digging through menus.</p>
+  <div class="detail-links"><a href="https://github.com/Aakash200411/AI_Assistant_ERP" target="_blank" rel="noopener">Repository</a></div>
+</section>
+<div class="row detail-body">
+  <h2>Overview</h2>
+  <div class="content"><p>The system pairs a standard ERP backend (user, resource, and records management) with a chatbot that answers questions and handles FAQ-style requests directly, using an LLM API layered behind an Express backend.</p></div>
+</div>
+<div class="row detail-body">
+  <h2>Architecture</h2>
+  <div class="content"><ul>
+<li><strong>Frontend:</strong> React interface for both the chatbot and the underlying ERP dashboard.</li>
+<li><strong>Backend:</strong> Node.js and Express, handling routing, data models, and business logic.</li>
+<li><strong>AI layer:</strong> A separate service handling LLM API calls that the backend queries for chatbot responses.</li>
+<li><strong>Database:</strong> MongoDB for storing users, records, and FAQ data.</li>
+</ul></div>
+</div>
+<div class="row detail-body">
+  <h2>What it does</h2>
+  <div class="content"><p>Instead of navigating through separate ERP screens to find attendance, resource, or user information, a user can ask the chatbot directly and get a routed, data-backed answer.</p></div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="row footer-row">
+    <span>Aakash Lodha</span>
+    <span>Mumbai, India</span>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

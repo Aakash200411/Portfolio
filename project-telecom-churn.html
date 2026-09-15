@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Telecom Customer Churn — Aakash Lodha</title>
+<meta name="description" content="Power BI churn analysis for a telecom dataset.">
+<meta name="author" content="Aakash Lodha">
+<meta property="og:title" content="Telecom Customer Churn — Aakash Lodha">
+<meta property="og:description" content="Power BI churn analysis for a telecom dataset.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aakash200411.github.io/Portfolio/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="row header-row">
+    <a href="index.html" class="wordmark">Aakash Lodha</a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="contact.html">Contact</a>
+      <a href="resume.pdf" class="nav-resume" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="row"><a href="projects.html" class="back-link">&larr; All projects</a></div>
+<section class="row detail-head">
+  <p class="card-tools">Power BI &middot; DAX &middot; Power Query</p>
+  <h1>Telecom customer churn analysis</h1>
+  <p class="detail-tagline">An interactive Power BI dashboard built on 6,687 telecom customer records, digging into why customers leave and which contract terms actually predict it.</p>
+  <div class="detail-links"><a href="https://github.com/Aakash200411/Telecom-customer-churn-dashboard" target="_blank" rel="noopener">Repository</a> <a href="images/telecom-dashboard.png" target="_blank" rel="noopener">Dashboard image</a></div>
+</section>
+<section class="row" style="padding:20px 0 0;"><img class="detail-shot" src="images/telecom-dashboard.png" alt="Telecom churn Power BI dashboard"><p class="shot-caption">Power BI dashboard: churn rate, contract type, tenure, and churn reason breakdowns.</p></section><div class="row detail-body">
+  <h2>Overview</h2>
+  <div class="content"><p>Telecom companies lose customers constantly, and most churn dashboards stop at reporting the overall rate. I wanted to know which single factor actually predicted churn best, so I segmented the churn rate by contract type, monthly charge band, tenure, and data plan, then built the dashboard around whichever factor turned out to matter most.</p></div>
+</div>
+<div class="row detail-body">
+  <h2>Key finding</h2>
+  <div class="content"><p>Contract type dominates everything else in the dataset:</p>
+<div class="chart">
+  <div class="chart-bar-row"><span class="chart-bar-label">Month-to-month</span><span class="chart-bar-track"><span class="chart-bar-fill" style="--pct:46.3%"></span></span><span class="chart-bar-value">46.3%</span></div>
+  <div class="chart-bar-row"><span class="chart-bar-label">One year</span><span class="chart-bar-track"><span class="chart-bar-fill chart-bar-fill--quiet" style="--pct:11.3%"></span></span><span class="chart-bar-value">11.3%</span></div>
+  <div class="chart-bar-row"><span class="chart-bar-label">Two year</span><span class="chart-bar-track"><span class="chart-bar-fill chart-bar-fill--quiet" style="--pct:2.8%"></span></span><span class="chart-bar-value">2.8%</span></div>
+</div>
+<p>Month-to-month customers churn at more than 16&times; the rate of two-year customers. Competitor-related reasons were the most common cause cited among customers who left.</p></div>
+</div>
+<div class="row detail-body">
+  <h2>Recommendation</h2>
+  <div class="content"><p>Prioritize retention offers around converting customers off month-to-month billing early, rather than reacting once usage or complaints spike. The contract itself is the highest-leverage lever available, ahead of pricing or service quality fixes.</p></div>
+</div>
+<div class="row detail-body">
+  <h2>What I'd add next</h2>
+  <div class="content"><p>A cohort view by signup month would show whether the month-to-month churn rate has been getting better or worse over time, not just where it stands today.</p></div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="row footer-row">
+    <span>Aakash Lodha</span>
+    <span>Mumbai, India</span>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
