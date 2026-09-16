@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SaaS Subscription Analytics — Aakash Lodha</title>
+<meta name="description" content="A 6-table SQL analytics project on a live PostgreSQL database.">
+<meta name="author" content="Aakash Lodha">
+<meta property="og:title" content="SaaS Subscription Analytics — Aakash Lodha">
+<meta property="og:description" content="A 6-table SQL analytics project on a live PostgreSQL database.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aakash200411.github.io/Portfolio/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="row header-row">
+    <a href="index.html" class="wordmark">Aakash Lodha</a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="contact.html">Contact</a>
+      <a href="resume.pdf" class="nav-resume" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="row"><a href="projects.html" class="back-link">&larr; All projects</a></div>
+<section class="row detail-head">
+  <p class="card-tools">PostgreSQL &middot; SQL &middot; Python</p>
+  <h1>SaaS subscription analytics</h1>
+  <p class="detail-tagline">A SQL-first project on a synthetic B2B SaaS business — 1,182 customers across a real 6-table schema, running on a live PostgreSQL database, built specifically to show joins, CTEs, and window functions rather than a single flat CSV.</p>
+  <div class="detail-links"><a href="https://github.com/Aakash200411/SaaS-Subscription-Analytics" target="_blank" rel="noopener">Repository</a></div>
+</section>
+<section class="row" style="padding:20px 0 0;"><img class="detail-shot" src="images/sql-project-terminal.png" alt="psql terminal showing a real churn-by-tier query and its output"><p class="shot-caption">Real output from a live PostgreSQL database — not a mockup.</p></section><div class="row detail-body">
+  <h2>Schema</h2>
+  <div class="content"><ul>
+<li><strong>customers</strong> &mdash; signup info, acquisition channel, industry (intentionally messy on load)</li>
+<li><strong>plans</strong> &mdash; Starter / Growth / Scale tiers</li>
+<li><strong>subscriptions</strong> &mdash; one row per subscription period; a customer can have several over time</li>
+<li><strong>payments</strong> &mdash; every billing charge, including failed and refunded ones</li>
+<li><strong>product_usage</strong> &mdash; monthly engagement per customer</li>
+<li><strong>marketing_spend</strong> &mdash; spend by acquisition channel by month</li>
+</ul></div>
+</div>
+<div class="row detail-body">
+  <h2>What the SQL covers</h2>
+  <div class="content"><ul>
+<li><strong>01 &mdash; Data cleaning:</strong> normalizing inconsistent casing/whitespace, removing duplicate signups with <code>ROW_NUMBER()</code></li>
+<li><strong>02 &mdash; Revenue:</strong> MRR trend and month-over-month growth using <code>LAG()</code></li>
+<li><strong>03 &mdash; Churn &amp; retention:</strong> churn by tier/billing/channel, 6-month cohort retention</li>
+<li><strong>04 &mdash; Product usage:</strong> does early engagement predict later churn?</li>
+<li><strong>05 &mdash; Marketing &amp; CAC:</strong> customer acquisition cost and revenue-to-CAC ratio by channel</li>
+<li><strong>06 &mdash; Advanced:</strong> <code>RANK()</code>, <code>NTILE()</code>, running totals, partitioned <code>LAG()</code></li>
+</ul></div>
+</div>
+<div class="row detail-body">
+  <h2>Key findings</h2>
+  <div class="content"><div class="stat-line"><span class="stat-val">34.5%</span><span class="stat-lbl">Starter-tier churn, vs 12.0% for Scale</span></div>
+<div class="stat-line"><span class="stat-val">46.2%</span><span class="stat-lbl">churn rate for low-engagement customers, vs 13.8% for highly engaged ones</span></div>
+<div class="stat-line"><span class="stat-val">3.2&times;</span><span class="stat-lbl">revenue-to-CAC ratio for Paid Search &mdash; the channel getting the most new budget, despite Referral running at 27&times;</span></div>
+<div class="stat-line"><span class="stat-val">69.9%</span><span class="stat-lbl">of all revenue comes from the top revenue quartile of customers</span></div>
+<p>Early product engagement predicts churn more strongly than which plan a customer is on. Combined with the CAC finding, the highest-leverage move isn't a pricing change &mdash; it's flagging low-engagement accounts in their first 60 days, before a cancellation request ever comes in.</p></div>
+</div>
+<div class="row detail-body">
+  <h2>Notes on the data</h2>
+  <div class="content"><p>The dataset is synthetically generated, not real customer data. The patterns above were built into the generator's logic before any SQL was written, then found by querying it &mdash; the same way they'd be found in a real database, and nothing was decided after seeing the results.</p></div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="row footer-row">
+    <span>Aakash Lodha</span>
+    <span>Mumbai, India</span>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
