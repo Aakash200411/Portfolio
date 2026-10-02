@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HR Attrition Analytics — Aakash Lodha</title>
-<meta name="description" content="Power BI workforce attrition analysis.">
+<meta name="description" content="Three-page Power BI dashboard on employee attrition: who leaves, which factors raise the risk, and which current employees to talk to first.">
 <meta name="author" content="Aakash Lodha">
 <meta property="og:title" content="HR Attrition Analytics — Aakash Lodha">
-<meta property="og:description" content="Power BI workforce attrition analysis.">
+<meta property="og:description" content="Three-page Power BI dashboard on employee attrition: who leaves, which factors raise the risk, and which current employees to talk to first.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aakash200411.github.io/Portfolio/">
 
@@ -37,24 +37,60 @@
 <section class="row detail-head">
   <p class="card-tools">Power BI &middot; DAX &middot; Power Query</p>
   <h1>HR attrition analytics</h1>
-  <p class="detail-tagline">A workforce analytics dashboard covering 1,480 employees, built to find which factor actually drives attrition rather than just reporting the department breakdown.</p>
-  <div class="detail-links"><a href="https://github.com/Aakash200411/Hr-analytics-dashboard" target="_blank" rel="noopener">Repository</a> <a href="images/hr-dashboard.png" target="_blank" rel="noopener">Dashboard image</a></div>
+  <p class="detail-tagline">A three-page Power BI dashboard on 1,464 employees: who leaves, which factors raise the risk, and which current employees to talk to first.</p>
+  <div class="detail-links"><a href="https://github.com/Aakash200411/Hr-analytics-dashboard" target="_blank" rel="noopener">Repository</a> <a href="images/hr-dashboard-overview.png" target="_blank" rel="noopener">Overview page (full size)</a></div>
 </section>
-<section class="row" style="padding:20px 0 0;"><img class="detail-shot" src="images/hr-dashboard.png" alt="HR analytics Power BI dashboard"><p class="shot-caption">Power BI dashboard: attrition by department, salary slab, age group, and experience.</p></section><div class="row detail-body">
+<section class="row" style="padding:20px 0 0;"><img class="detail-shot" src="images/Hr_overview.png" alt="HR attrition Power BI dashboard, overview page"><p class="shot-caption">Page 1, attrition at a glance: headline rate, departments, job roles, tenure, and overtime by age group.</p></section>
+<div class="row detail-body">
   <h2>Overview</h2>
-  <div class="content"><p>Most HR attrition dashboards are organized around department and salary, since that's what the source data emphasizes. I cut the same dataset by overtime status as well, since workload is usually a stronger predictor of burnout-driven attrition than either of those.</p></div>
+  <div class="content"><p>Most HR dashboards report attrition by department and salary band and stop there. I wanted to find which factors actually separate people who leave from people who stay, and then turn that into a list of current employees worth talking to. The report has an overview page, a drivers page built around a decomposition tree, and a people-at-risk page.</p></div>
 </div>
 <div class="row detail-body">
-  <h2>Key finding</h2>
-  <div class="content"><div class="chart">
-  <div class="chart-bar-row"><span class="chart-bar-label">Works overtime</span><span class="chart-bar-track"><span class="chart-bar-fill" style="--pct:31.2%"></span></span><span class="chart-bar-value">31.2%</span></div>
-  <div class="chart-bar-row"><span class="chart-bar-label">No overtime</span><span class="chart-bar-track"><span class="chart-bar-fill chart-bar-fill--quiet" style="--pct:10.4%"></span></span><span class="chart-bar-value">10.4%</span></div>
+  <h2>Key findings</h2>
+  <div class="content"><div class="stat-line"><span class="stat-val">30.6%</span><span class="stat-lbl">attrition for staff who work overtime, against 10.3% without it &mdash; 3&times; the rate, and 54% of all leavers did overtime</span></div>
+<div class="stat-line"><span class="stat-val">34%</span><span class="stat-lbl">of first-year hires left (73 of 213), the highest of any tenure band</span></div>
+<div class="stat-line"><span class="stat-val">64%</span><span class="stat-lbl">attrition for 18&ndash;25-year-olds who work overtime, against 23% for the same age group without it</span></div>
+<div class="stat-line"><span class="stat-val">39.5%</span><span class="stat-lbl">attrition for Sales Representatives, about 2.5&times; the company rate of 16.1%</span></div>
+<div class="stat-line"><span class="stat-val">15&ndash;19%</span><span class="stat-lbl">attrition in every salary band &mdash; pay band does not separate leavers from stayers</span></div>
+<div class="stat-line"><span class="stat-val">68%</span><span class="stat-lbl">attrition for staff with overtime, job level 1 and no stock options: 74 people, 21% of all leavers</span></div>
+<div class="chart">
+  <div class="chart-bar-row"><span class="chart-bar-label">All employees</span><span class="chart-bar-track"><span class="chart-bar-fill chart-bar-fill--quiet" style="--pct:16.1%"></span></span><span class="chart-bar-value">16%</span></div>
+  <div class="chart-bar-row"><span class="chart-bar-label">+ Works overtime</span><span class="chart-bar-track"><span class="chart-bar-fill chart-bar-fill--quiet" style="--pct:30.6%"></span></span><span class="chart-bar-value">31%</span></div>
+  <div class="chart-bar-row"><span class="chart-bar-label">+ Job level 1</span><span class="chart-bar-track"><span class="chart-bar-fill" style="--pct:52.9%"></span></span><span class="chart-bar-value">53%</span></div>
+  <div class="chart-bar-row"><span class="chart-bar-label">+ No stock options</span><span class="chart-bar-track"><span class="chart-bar-fill" style="--pct:67.6%"></span></span><span class="chart-bar-value">68%</span></div>
 </div>
-<p>Employees who work overtime leave at <strong>31.2%</strong>, against <strong>10.4%</strong> for everyone else &mdash; a bigger gap than any single department or salary band shows on its own.</p></div>
+<p>Each step adds one factor to the group, which is how the decomposition tree on page 2 finds the highest-rate path.</p></div>
 </div>
+<section class="row" style="padding:0;"><img class="detail-shot" src="images/Hr_Drivers.png" alt="HR attrition Power BI dashboard, drivers page"><p class="shot-caption">Page 2, why people leave: decomposition tree, satisfaction of leavers vs stayers, stock options, and pay band.</p></section>
 <div class="row detail-body">
   <h2>Recommendation</h2>
-  <div class="content"><p>An overtime audit inside the highest-attrition departments is likely to find more than another engagement survey would. Overtime load looks like the actual mechanism behind several of the department-level differences, not a separate factor.</p></div>
+  <div class="content"><ul>
+<li><strong>Review overtime workloads</strong>, starting with junior staff and the Sales Representative role, where the rates are highest.</li>
+<li><strong>Support first-year hires</strong> with a structured onboarding and a check-in before the six-month mark.</li>
+<li><strong>Look at stock-option eligibility for new joiners.</strong> Level 0 staff leave at 24%, against 9% at level 1.</li>
+<li><strong>Do not rely on pay rises as the main lever.</strong> Attrition is flat across salary bands.</li>
+<li><strong>Start with the 73 active employees</strong> in the overtime and job level 1 group, 24 of whom have no stock options.</li>
+</ul></div>
+</div>
+<section class="row" style="padding:0;"><img class="detail-shot" src="images/Hr_People_at_Risk.png" alt="HR attrition Power BI dashboard, people at risk page"><p class="shot-caption">Page 3, people at risk: the active employees to talk to first, grouped into risk tiers.</p></section>
+<div class="row detail-body">
+  <h2>How it's built</h2>
+  <div class="content"><ul>
+<li><strong>Power Query:</strong> removed 16 duplicate employee IDs (1,480 to 1,464 rows), fixed inconsistent travel labels, dropped three columns that never vary, and kept 61 rows with a blank manager-tenure field instead of deleting them.</li>
+<li><strong>DAX:</strong> attrition rate, overall benchmark rate, overtime and first-year rates, and the measures behind the risk profile and the at-risk group.</li>
+<li><strong>Visuals:</strong> treemap, bubble chart, area chart, small multiples, decomposition tree, stacked bar, matrix with data bars, and a table with risk-tier tags.</li>
+<li><strong>Design:</strong> every chart compares <em>rates</em>, not counts, against a dashed overall-average line. One accent colour is reserved for the problem, and chart titles state the finding.</li>
+</ul></div>
+</div>
+<div class="row detail-body">
+  <h2>Limits of the data</h2>
+  <div class="content"><p>The data is one snapshot with no dates, so it can't show trends or why someone left. It shows association, not causation, and some groups are small (stock option level 3 has 85 people). The risk tier is a rule, not a prediction model. Page 3 lists named employees, so in a real setting it would sit behind row-level security.</p>
+<!-- TODO: add one line on where the dataset comes from -->
+</div>
+</div>
+<div class="row detail-body">
+  <h2>What I'd add next</h2>
+  <div class="content"><p>Train a model (logistic regression or gradient boosting) to score each active employee instead of using a fixed rule, then add manager, promotion and exit-reason data so the dashboard can say why people leave and not only who does. Adding the cost of replacing an employee would let me size the savings from each action.</p></div>
 </div>
 </main>
 <footer class="site-footer">

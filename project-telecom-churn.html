@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Telecom Customer Churn — Aakash Lodha</title>
-<meta name="description" content="Power BI churn analysis for a telecom dataset.">
+<meta name="description" content="Two-page Power BI churn dashboard: why telecom customers leave and which active customers to contact first.">
 <meta name="author" content="Aakash Lodha">
 <meta property="og:title" content="Telecom Customer Churn — Aakash Lodha">
-<meta property="og:description" content="Power BI churn analysis for a telecom dataset.">
+<meta property="og:description" content="Two-page Power BI churn dashboard: why telecom customers leave and which active customers to contact first.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aakash200411.github.io/Portfolio/">
 
@@ -37,30 +37,55 @@
 <section class="row detail-head">
   <p class="card-tools">Power BI &middot; DAX &middot; Power Query</p>
   <h1>Telecom customer churn analysis</h1>
-  <p class="detail-tagline">An interactive Power BI dashboard built on 6,687 telecom customer records, digging into why customers leave and which contract terms actually predict it.</p>
-  <div class="detail-links"><a href="https://github.com/Aakash200411/Telecom-customer-churn-dashboard" target="_blank" rel="noopener">Repository</a> <a href="images/telecom-dashboard.png" target="_blank" rel="noopener">Dashboard image</a></div>
+  <p class="detail-tagline">A two-page Power BI dashboard on 6,687 telecom customers: why they leave, which signals warn of it, and which active customers to contact first.</p>
+  <div class="detail-links"><a href="https://github.com/Aakash200411/Telecom-customer-churn-dashboard" target="_blank" rel="noopener">Repository</a> <a href="images/Dashboard_final_1.png" target="_blank" rel="noopener">Overview page (full size)</a></div>
 </section>
-<section class="row" style="padding:20px 0 0;"><img class="detail-shot" src="images/telecom-dashboard.png" alt="Telecom churn Power BI dashboard"><p class="shot-caption">Power BI dashboard: churn rate, contract type, tenure, and churn reason breakdowns.</p></section><div class="row detail-body">
+<section class="row" style="padding:20px 0 0;"><img class="detail-shot" src="images/Dashboard_final_1.png" alt="Telecom churn Power BI dashboard, overview page"><p class="shot-caption">Page 1, churn overview: KPIs, churn by tenure, churn reasons, and churn by contract, service calls and payment method.</p></section>
+<section class="row" style="padding:20px 0 0;"><img class="detail-shot" src="images/Dashboard_final_2.png" alt="Telecom churn Power BI dashboard, segments page"><p class="shot-caption">Page 2, segments: the riskiest customer groups and the active customers to contact first.</p></section>
+<div class="row detail-body">
   <h2>Overview</h2>
-  <div class="content"><p>Telecom companies lose customers constantly, and most churn dashboards stop at reporting the overall rate. I wanted to know which single factor actually predicted churn best, so I segmented the churn rate by contract type, monthly charge band, tenure, and data plan, then built the dashboard around whichever factor turned out to matter most.</p></div>
+  <div class="content"><p>Most churn dashboards stop at the overall rate. I wanted to answer three questions: who leaves, why, and what a retention team could do on Monday morning. The report has an overview page (where and why churn happens) and a segments page (the riskiest groups, plus a list of active customers to contact first).</p></div>
 </div>
 <div class="row detail-body">
-  <h2>Key finding</h2>
-  <div class="content"><p>Contract type dominates everything else in the dataset:</p>
+  <h2>Key findings</h2>
+  <div class="content"><div class="stat-line"><span class="stat-val">46.3%</span><span class="stat-lbl">churn for month-to-month customers, vs 2.8% on two-year contracts &mdash; and they are 88% of all churners</span></div>
+<div class="stat-line"><span class="stat-val">31.9%</span><span class="stat-lbl">of monthly revenue lost to churn, against 26.9% of customers lost &mdash; the people leaving pay more than average</span></div>
+<div class="stat-line"><span class="stat-val">53%</span><span class="stat-lbl">churn in the first 6 months, falling to about 10% after four years</span></div>
+<div class="stat-line"><span class="stat-val">88%</span><span class="stat-lbl">churn once a customer has made 3 service calls (nearly 100% at 4+), vs 9% for customers with none</span></div>
+<div class="stat-line"><span class="stat-val">50.9%</span><span class="stat-lbl">churn for month-to-month customers on an unlimited data plan, vs 1.3% for two-year customers without one</span></div>
+<div class="stat-line"><span class="stat-val">45%</span><span class="stat-lbl">of churners named a competitor as their reason &mdash; the most common by far</span></div>
 <div class="chart">
   <div class="chart-bar-row"><span class="chart-bar-label">Month-to-month</span><span class="chart-bar-track"><span class="chart-bar-fill" style="--pct:46.3%"></span></span><span class="chart-bar-value">46.3%</span></div>
   <div class="chart-bar-row"><span class="chart-bar-label">One year</span><span class="chart-bar-track"><span class="chart-bar-fill chart-bar-fill--quiet" style="--pct:11.3%"></span></span><span class="chart-bar-value">11.3%</span></div>
   <div class="chart-bar-row"><span class="chart-bar-label">Two year</span><span class="chart-bar-track"><span class="chart-bar-fill chart-bar-fill--quiet" style="--pct:2.8%"></span></span><span class="chart-bar-value">2.8%</span></div>
-</div>
-<p>Month-to-month customers churn at more than 16&times; the rate of two-year customers. Competitor-related reasons were the most common cause cited among customers who left.</p></div>
+</div></div>
 </div>
 <div class="row detail-body">
   <h2>Recommendation</h2>
-  <div class="content"><p>Prioritize retention offers around converting customers off month-to-month billing early, rather than reacting once usage or complaints spike. The contract itself is the highest-leverage lever available, ahead of pricing or service quality fixes.</p></div>
+  <div class="content"><ul>
+<li><strong>Convert month-to-month customers to annual contracts early</strong>, in the first 6 to 12 months when churn is highest.</li>
+<li><strong>Escalate any customer on a second service call</strong> to retention before it reaches three.</li>
+<li><strong>Start with the save list:</strong> 475 active customers who are month-to-month, in their first year, on an unlimited plan (about 14K in monthly revenue). That profile has churned at 62% and accounts for 43% of all churners.</li>
+</ul></div>
+</div>
+<div class="row detail-body">
+  <h2>How it's built</h2>
+  <div class="content"><ul>
+<li><strong>Power Query:</strong> de-duplicated customers, built tenure, charge, age and service-call bands with sort-order columns.</li>
+<li><strong>DAX:</strong> churn rate, revenue lost %, month-to-month share of churners, and the measures behind the save list.</li>
+<li><strong>Design:</strong> every chart compares <em>rates</em>, not counts, against a dashed overall-average line, and one accent colour is reserved for the problem. Chart titles state the finding.</li>
+<li><strong>Interactivity:</strong> slicers, a reset button, page navigation, and drill-down from churn category to churn reason.</li>
+</ul></div>
+</div>
+<div class="row detail-body">
+  <h2>Limits of the data</h2>
+  <div class="content"><p>The data is a single snapshot with no dates, so it can't show trends or signup-month cohorts. It shows association, not causation: nothing here proves a retention offer would change behaviour. The save list is a rule-based filter, not a prediction model, and the &ldquo;Other&rdquo; churn reason includes 27 churners with no recorded reason.</p>
+<!-- TODO: add one line on where the dataset comes from -->
+</div>
 </div>
 <div class="row detail-body">
   <h2>What I'd add next</h2>
-  <div class="content"><p>A cohort view by signup month would show whether the month-to-month churn rate has been getting better or worse over time, not just where it stands today.</p></div>
+  <div class="content"><p>Train a churn model (logistic regression or gradient boosting) to score active customers instead of using a fixed rule, then run a small A/B test of a retention offer on the save list. Adding cost data would let me estimate whether each offer pays for itself.</p></div>
 </div>
 </main>
 <footer class="site-footer">
