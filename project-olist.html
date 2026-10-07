@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Olist E-commerce Analytics — Aakash Lodha</title>
+<meta name="description" content="SQL and Python analysis of 96,000 real marketplace orders: delivery, satisfaction and customer value.">
+<meta name="author" content="Aakash Lodha">
+<meta property="og:title" content="Olist E-commerce Analytics — Aakash Lodha">
+<meta property="og:description" content="SQL and Python analysis of 96,000 real marketplace orders: delivery, satisfaction and customer value.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aakash200411.github.io/Portfolio/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="row header-row">
+    <a href="index.html" class="wordmark">Aakash Lodha</a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://drive.google.com/file/d/1hoLy8ntG-dDtnnPNpMZS2QSdPCOjU23k/view?usp=drive_link" class="nav-resume" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="row"><a href="projects.html" class="back-link">&larr; All projects</a></div>
+<section class="row detail-head">
+  <p class="card-tools">SQL &middot; Python &middot; Statistics</p>
+  <h1>Olist e-commerce analytics</h1>
+  <p class="detail-tagline">A SQL and Python analysis of 96,000 real orders from a Brazilian online marketplace: why customers leave bad reviews, where delivery breaks down, and why 97% of customers never come back. Real, public data, so every number can be reproduced.</p>
+  <div class="detail-links"><a href="https://github.com/Aakash200411/olist-ecommerce-analytics" target="_blank" rel="noopener">Repository</a> <a href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce" target="_blank" rel="noopener">Dataset (Kaggle)</a></div>
+</section>
+<section class="row" style="padding:20px 0 0;"><img class="detail-shot" src="images/olist-late-vs-score.png" alt="Monthly late-delivery rate as bars with average review score as a line; review score drops when late deliveries spike"><p class="shot-caption">Late-delivery spikes (Nov 2017, Feb&ndash;Mar 2018) line up with the dips in average review score.</p></section>
+<div class="row detail-body">
+  <h2>Overview</h2>
+  <div class="content"><p>My earlier SQL project used synthetic data, so I wanted one where nothing was generated. The Olist dataset is real, anonymised order data across nine related tables: orders, items, payments, reviews, customers, sellers and products. I audited it first, cleaned it in SQL views, then asked five questions: how did the business grow, where does delivery fail, does late delivery really hurt reviews, where does revenue concentrate, and who are the customers.</p></div>
+</div>
+<div class="row detail-body">
+  <h2>Key findings</h2>
+  <div class="content"><div class="stat-line"><span class="stat-val">2.26</span><span class="stat-lbl">average review score for late orders (6,531), against 4.28 for on-time orders (89,672)</span></div>
+<div class="stat-line"><span class="stat-val">&asymp;10&times;</span><span class="stat-lbl">higher odds of a 1&ndash;2 star review for late orders, after controlling for delivery time, freight cost, item value and multi-seller orders</span></div>
+<div class="stat-line"><span class="stat-val">3.91</span><span class="stat-lbl">average score for orders that took 21+ days but arrived on time, against 2.12 for those that were also late &mdash; the promise matters more than the wait</span></div>
+<div class="stat-line"><span class="stat-val">6.8%</span><span class="stat-lbl">of orders arrived late overall, but 12.4% in Nov 2017 and 14&ndash;19% in Feb&ndash;Mar 2018</span></div>
+<div class="stat-line"><span class="stat-val">79%</span><span class="stat-lbl">of orders arrive 7+ days before the promised date, so the delivery estimates are heavily padded</span></div>
+<div class="stat-line"><span class="stat-val">97%</span><span class="stat-lbl">of customers ordered only once; returning customers stayed at about 2.5% of monthly revenue</span></div>
+<div class="stat-line"><span class="stat-val">67%</span><span class="stat-lbl">of GMV comes from the top 10% of sellers</span></div>
+<div class="stat-line"><span class="stat-val">39%</span><span class="stat-lbl">of revenue sits with 21,979 lapsed big spenders, the obvious win-back segment</span></div>
+<div class="chart">
+  <div class="chart-bar-row"><span class="chart-bar-label">8+ days early</span><span class="chart-bar-track"><span class="chart-bar-fill chart-bar-fill--quiet" style="--pct:86.2%"></span></span><span class="chart-bar-value">4.31</span></div>
+  <div class="chart-bar-row"><span class="chart-bar-label">1&ndash;7 days early</span><span class="chart-bar-track"><span class="chart-bar-fill chart-bar-fill--quiet" style="--pct:83.8%"></span></span><span class="chart-bar-value">4.19</span></div>
+  <div class="chart-bar-row"><span class="chart-bar-label">On the day</span><span class="chart-bar-track"><span class="chart-bar-fill chart-bar-fill--quiet" style="--pct:80.2%"></span></span><span class="chart-bar-value">4.01</span></div>
+  <div class="chart-bar-row"><span class="chart-bar-label">1&ndash;3 days late</span><span class="chart-bar-track"><span class="chart-bar-fill chart-bar-fill--rust" style="--pct:65.6%"></span></span><span class="chart-bar-value">3.28</span></div>
+  <div class="chart-bar-row"><span class="chart-bar-label">4&ndash;7 days late</span><span class="chart-bar-track"><span class="chart-bar-fill chart-bar-fill--rust" style="--pct:41.8%"></span></span><span class="chart-bar-value">2.09</span></div>
+  <div class="chart-bar-row"><span class="chart-bar-label">8&ndash;14 days late</span><span class="chart-bar-track"><span class="chart-bar-fill chart-bar-fill--rust" style="--pct:33.4%"></span></span><span class="chart-bar-value">1.67</span></div>
+  <div class="chart-bar-row"><span class="chart-bar-label">15+ days late</span><span class="chart-bar-track"><span class="chart-bar-fill chart-bar-fill--rust" style="--pct:34.4%"></span></span><span class="chart-bar-value">1.72</span></div>
+</div>
+<p>Average review score by delivery vs the promised date. The score does not fall gradually &mdash; it drops sharply the moment an order misses its date.</p></div>
+</div>
+<section class="row" style="padding:0;"><img class="detail-shot" src="images/olist-odds-ratios.png" alt="Odds ratios from a logistic regression predicting 1 to 2 star reviews"><p class="shot-caption">Logistic regression for a 1&ndash;2 star review. Late delivery has by far the largest effect; freight cost barely matters.</p></section>
+<div class="row detail-body">
+  <h2>Recommendation</h2>
+  <div class="content"><ul>
+<li><strong>Manage the delivery promise, not just the speed.</strong> Plan capacity for November and the Feb&ndash;Mar window, and set more realistic estimates for the north-east, where 12&ndash;21% of orders arrive late even with 29&ndash;33 day promises.</li>
+<li><strong>Look at multi-seller orders.</strong> They are 1.3% of orders but average only 2.85 stars despite rarely being late. Split shipments are one plausible reason, but the data cannot confirm it.</li>
+<li><strong>Treat retention as the untapped lever.</strong> Growth flattened through 2018 while 97% of customers bought once. Test win-back offers on the lapsed big spenders.</li>
+<li><strong>Do not blame a few sellers.</strong> Among sellers with 50+ orders, the ones with 20%+ late rates cause only 1.5% of late orders. The problem is logistics and capacity.</li>
+</ul></div>
+</div>
+<section class="row" style="padding:0;"><img class="detail-shot" src="images/olist-late-by-state.png" alt="Late delivery rate by customer state"><p class="shot-caption">Late-delivery rate by customer state. North-east states such as Alagoas (21.5%) and Maranh&atilde;o (17.5%) are far above S&atilde;o Paulo (4.5%).</p></section>
+<div class="row detail-body">
+  <h2>How it's built</h2>
+  <div class="content"><ul>
+<li><strong>SQL:</strong> all nine tables loaded into a local DuckDB database using PostgreSQL-compatible SQL. One audit file, one cleaning-views file and five analysis files, using joins, CTEs, <code>LAG()</code>, <code>RANK()</code>, <code>NTILE()</code>, <code>ROW_NUMBER()</code>, running totals, moving averages and percentiles.</li>
+<li><strong>Data cleaning:</strong> <code>customer_id</code> is created per order, so I used <code>customer_unique_id</code> (99,441 ids vs 96,096 real customers); kept one review per order where 555 had several; excluded 166 orders with a carrier date before the purchase date; labelled 610 products with no category instead of dropping them.</li>
+<li><strong>Python:</strong> SQL results pulled into pandas, then a Mann-Whitney test, a chi-square test and a logistic regression (statsmodels), with charts in matplotlib and seaborn.</li>
+<li><strong>Reproducible:</strong> a build script checks every table against the official row count, and the headline numbers are written to a file by the notebook rather than typed by hand.</li>
+</ul></div>
+</div>
+<section class="row" style="padding:0;"><img class="detail-shot" src="images/olist-rfm-segments.png" alt="RFM customer segments showing share of customers vs share of revenue"><p class="shot-caption">RFM segments: share of customers against share of revenue.</p></section>
+<div class="row detail-body">
+  <h2>Limits of the data</h2>
+  <div class="content"><p>This is observational data, so the late-delivery effect is a strong association that survives controls, not proof of cause. Reviews are voluntary and unhappy customers write far more comments, so scores are not a random sample. GMV is item price, not Olist's own revenue. The data covers one marketplace in one country from 2016 to 2018, with no cost or marketing data. Because 97% of customers bought once, RFM recency mostly reflects when someone first ordered. A bad first review did not significantly reduce repeat purchases (4.6% vs 5.2%, p&nbsp;=&nbsp;0.38), so I report that as a null result.</p>
+<p>Source: <a href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce" target="_blank" rel="noopener">Olist Brazilian E-Commerce Public Dataset on Kaggle</a>.</p></div>
+</div>
+<div class="row detail-body">
+  <h2>What I'd add next</h2>
+  <div class="content"><p>Text-mine the review comments, especially for late and multi-seller orders, to see what customers actually complain about. Then build a model that predicts which orders will be late from seller location, customer location and category, so the business could act before the promise is missed.</p></div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="row footer-row">
+    <span>Aakash Lodha</span>
+    <span>Nashik, India</span>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
