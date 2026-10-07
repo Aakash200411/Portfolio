@@ -1,6 +1,13 @@
 // One deliberate motion moment: ledger/stat figures count up from 0
 // to their real value on load. Respects reduced-motion.
 
+const RESUME_URL =
+  "https://drive.google.com/file/d/15aZ9zZrl126l5vO6GdoR63hwmnlwLlko/view?usp=drive_link";
+
+document.querySelectorAll("[data-resume-link]").forEach((link) => {
+  link.href = RESUME_URL;
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
