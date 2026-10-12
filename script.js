@@ -2,7 +2,7 @@
 // to their real value on load. Respects reduced-motion.
 
 const RESUME_URL =
-  "https://drive.google.com/file/d/15aZ9zZrl126l5vO6GdoR63hwmnlwLlko/view?usp=drive_link";
+  "https://drive.google.com/file/d/1YRmikCY41OodJHJsxOgDpT5r_MiUkbNV/view?usp=sharing";
 
 document.querySelectorAll("[data-resume-link]").forEach((link) => {
   link.href = RESUME_URL;

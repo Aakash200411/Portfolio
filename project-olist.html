@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Olist E-commerce Analytics — Aakash Lodha</title>
-<meta name="description" content="SQL and Python analysis of 96,000 real marketplace orders: delivery, satisfaction and customer value.">
+<meta name="description" content="SQL, Python and Tableau analysis of 96,000 real marketplace orders, with interactive dashboards for delivery performance and customer satisfaction.">
 <meta name="author" content="Aakash Lodha">
 <meta property="og:title" content="Olist E-commerce Analytics — Aakash Lodha">
-<meta property="og:description" content="SQL and Python analysis of 96,000 real marketplace orders: delivery, satisfaction and customer value.">
+<meta property="og:description" content="SQL, Python and Tableau analysis of 96,000 real marketplace orders, with interactive dashboards for delivery performance and customer satisfaction.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aakash200411.github.io/Portfolio/">
 
@@ -35,10 +35,26 @@
 
 <div class="row"><a href="projects.html" class="back-link">&larr; All projects</a></div>
 <section class="row detail-head">
-  <p class="card-tools">SQL &middot; Python &middot; Statistics</p>
+  <p class="card-tools">SQL &middot; Python &middot; Statistics &middot; Tableau</p>
   <h1>Olist e-commerce analytics</h1>
   <p class="detail-tagline">A SQL and Python analysis of 96,000 real orders from a Brazilian online marketplace: why customers leave bad reviews, where delivery breaks down, and why 97% of customers never come back. Real, public data, so every number can be reproduced.</p>
-  <div class="detail-links"><a href="https://github.com/Aakash200411/olist-ecommerce-analytics" target="_blank" rel="noopener">Repository</a> <a href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce" target="_blank" rel="noopener">Dataset (Kaggle)</a></div>
+  <div class="detail-links"><a href="https://github.com/Aakash200411/olist-ecommerce-analytics" target="_blank" rel="noopener">Repository</a> <a href="https://public.tableau.com/app/profile/aakash.lodha/viz/Olist_Delivery_Intelligence/ExecutiveOverview" target="_blank" rel="noopener">Interactive Tableau dashboards</a> <a href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce" target="_blank" rel="noopener">Dataset (Kaggle)</a></div>
+<section class="row detail-body">
+  <h2>Tableau dashboards</h2>
+  <div class="content">
+    <p>I extended the original SQL and Python analysis with three Tableau dashboards, moving from an executive summary to delivery-problem diagnosis and recommended next steps.</p>
+    <h3>1. Executive Overview</h3>
+    <p>Summarizes total orders, GMV, late-delivery rate, average review score and low-review rate, with monthly, state-level and seller-level delivery views.</p>
+    <img class="detail-shot" src="images/Olist_Dashboard-1.png" alt="Tableau Executive Overview dashboard showing delivery KPIs, monthly trend, review scores, state map and seller performance">
+    <h3>2. Delivery Problem Diagnosis</h3>
+    <p>Compares late-order delay severity and review scores, and examines state-level late-delivery rates alongside late-order volumes.</p>
+    <img class="detail-shot" src="images/Olist_Dashboard-2.png" alt="Tableau Delivery Problem Diagnosis dashboard showing delay severity, review scores, state delivery rates and late-order volume">
+    <h3>3. Delivery Improvement Action Plan</h3>
+    <p>Summarizes the key delivery metrics and translates the analysis into recommended investigations covering state-level bottlenecks, severe delays, category reliability and customer-satisfaction monitoring.</p>
+    <img class="detail-shot" src="images/Olist_Dashboard-3.png" alt="Tableau Delivery Improvement Action Plan dashboard with KPI cards, priority areas and recommendations">
+    <p class="shot-caption">The dashboards are descriptive: they identify patterns and areas to investigate, rather than proving root causes or measuring the impact of implemented changes.</p>
+  </div>
+</section>
 </section>
 <section class="row" style="padding:20px 0 0;"><img class="detail-shot" src="images/olist-late-vs-score.png" alt="Monthly late-delivery rate as bars with average review score as a line; review score drops when late deliveries spike"><p class="shot-caption">Late-delivery spikes (Nov 2017, Feb&ndash;Mar 2018) line up with the dips in average review score.</p></section>
 <div class="row detail-body">
