@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Credit risk & default prediction — Aakash Lodha</title>
+<meta name="description" content="Credit card default prediction with XGBoost, threshold selection and SHAP.">
+<meta name="author" content="Aakash Lodha">
+<meta property="og:title" content="Credit risk & default prediction — Aakash Lodha">
+<meta property="og:description" content="Credit card default prediction with XGBoost, threshold selection and SHAP.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aakash200411.github.io/Portfolio/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="row header-row">
+    <a href="index.html" class="wordmark">Aakash Lodha</a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="contact.html">Contact</a>
+      <a href="#" data-resume-link class="nav-resume" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="row"><a href="projects.html" class="back-link">&larr; All projects</a></div>
+<section class="row detail-head">
+  <p class="card-tools">Python &middot; Scikit-learn &middot; XGBoost &middot; SHAP</p>
+  <h1>Credit card default prediction</h1>
+  <p class="detail-tagline">Predicting next-month payment default for 30,000 credit card customers, with model comparison, threshold selection and explainability.</p>
+  <div class="detail-links"><a href="https://github.com/Aakash200411/Credit-Risk-and-Loan-Default-Prediction" target="_blank" rel="noopener">Repository</a> <a href="https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients" target="_blank" rel="noopener">UCI dataset</a></div>
+</section>
+<div class="row detail-body">
+  <h2>Overview</h2>
+  <div class="content"><p>Using the UCI "Default of Credit Card Clients" dataset (30,000 customers, 22.12% default rate), I built a binary classifier for next-month payment default. The work covers EDA, repayment-behaviour feature engineering (credit utilization, payment-to-bill ratio, delay counts), pipeline-based preprocessing, eight-model comparison with stratified cross-validation, tuning, threshold optimisation and explainability.</p></div>
+</div>
+<div class="row detail-body">
+  <h2>Key results</h2>
+  <div class="content"><div class="stat-line"><span class="stat-val">0.5650</span><span class="stat-lbl">cross-validated PR-AUC for XGBoost, the best of eight candidate models (LightGBM 0.5599, Random Forest 0.5543, Logistic Regression 0.5052)</span></div>
+<div class="stat-line"><span class="stat-val">0.79</span><span class="stat-lbl">ROC-AUC on the untouched test set</span></div>
+<div class="stat-line"><span class="stat-val">92.77%</span><span class="stat-lbl">recall at a 0.10 threshold (precision 28.82%), against 35.72% recall and 67.71% precision at the default 0.50</span></div>
+<p>The model is only useful once the threshold matches the business question. At 0.10 it catches nearly every defaulter but flags many safe customers for review; at 0.50 it is precise but misses most defaults. I chose 0.10 on the validation split by maximising F2 and report both so the trade-off is explicit.</p>
+<div class="honest-note">PR-AUC was the primary metric because the classes are imbalanced. Sigmoid calibration did not help (Brier 0.1339 vs 0.1332 raw), so I kept the raw probabilities.</div></div>
+</div>
+<div class="row detail-body">
+  <h2>What drives default</h2>
+  <div class="content"><ul>
+<li>Most recent repayment status (<code>PAY_0</code>) was the strongest signal under permutation importance.</li>
+<li>Engineered features ranked next: maximum delay status, delayed-month count and credit utilization.</li>
+<li>SHAP was used for global and single-customer explanations. These are predictive associations, not causes.</li>
+</ul></div>
+</div>
+<div class="row detail-body">
+  <h2>Method</h2>
+  <div class="content"><ul>
+<li>80:20 stratified split with a separate validation partition; preprocessing kept inside pipelines so cross-validation stays leakage-free.</li>
+<li>Class weighting and SMOTE tested, with resampling applied only inside training folds.</li>
+<li>RandomizedSearchCV for tuning; the test set was used once, at the end.</li>
+<li>Interactive prediction demo inside the notebook (probability, class, risk label).</li>
+</ul></div>
+</div>
+<div class="row detail-body">
+  <h2>Limits</h2>
+  <div class="content"><p>This predicts credit card payment default for one historical population, not general loan default, and the project is for analysis and prioritising accounts for human review rather than approving or pricing credit. Demographic variables such as age and sex raise fairness questions I have not yet evaluated across groups.</p></div>
+</div>
+<div class="row prevnext"><a href="project-retail-forecasting.html">&larr; Retail demand forecasting</a><a href="project-ai-erp.html">RAG-based ERP assistant &rarr;</a></div>
+</main>
+<footer class="site-footer">
+  <div class="row footer-row">
+    <span>Aakash Lodha</span>
+    <span>Mumbai, India</span>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

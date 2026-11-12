@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retail demand forecasting — Aakash Lodha</title>
+<meta name="description" content="Rolling-origin demand forecasting and inventory planning on the M5 dataset.">
+<meta name="author" content="Aakash Lodha">
+<meta property="og:title" content="Retail demand forecasting — Aakash Lodha">
+<meta property="og:description" content="Rolling-origin demand forecasting and inventory planning on the M5 dataset.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aakash200411.github.io/Portfolio/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="row header-row">
+    <a href="index.html" class="wordmark">Aakash Lodha</a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="contact.html">Contact</a>
+      <a href="#" data-resume-link class="nav-resume" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="row"><a href="projects.html" class="back-link">&larr; All projects</a></div>
+<section class="row detail-head">
+  <p class="card-tools">Python &middot; Pandas &middot; XGBoost &middot; Statsmodels &middot; Time-series</p>
+  <h1>Retail demand forecasting &amp; inventory planning</h1>
+  <p class="detail-tagline">A 28-day demand forecast on the M5 retail dataset, validated with rolling-origin backtests and turned into safety-stock and reorder-point scenarios.</p>
+  <div class="detail-links"><a href="https://github.com/Aakash200411/Retail-Demand-Forecasting" target="_blank" rel="noopener">Repository</a> <a href="https://www.kaggle.com/competitions/m5-forecasting-accuracy" target="_blank" rel="noopener">M5 dataset</a></div>
+</section>
+<div class="row detail-body">
+  <h2>Overview</h2>
+  <div class="content"><p>I built an end-to-end forecasting pipeline on the M5 dataset: data validation, leakage-aware product selection, feature engineering on lagged and rolling demand, calendar and price covariates, and model comparison across four consecutive, non-overlapping 28-day validation windows. Each forecast origin only sees information available before its test period.</p><p>The forecast is then used for planning: lead-time demand, safety stock, reorder points and suggested order quantities, with a sensitivity analysis over lead time and service level.</p></div>
+</div>
+<div class="row detail-body">
+  <h2>Key results</h2>
+  <div class="content"><div class="stat-line"><span class="stat-val">53.18%</span><span class="stat-lbl">lowest mean WAPE across four rolling-origin windows &mdash; Exponential Smoothing</span></div>
+<div class="stat-line"><span class="stat-val">57.61%</span><span class="stat-lbl">mean WAPE for the tuned XGBoost (depth 4, learning rate 0.03), better than untuned XGBoost at 62.43%</span></div>
+<div class="stat-line"><span class="stat-val">140 rows</span><span class="stat-lbl">final forecast: 5 item-store series &times; 28 days, about 1,020.7 units in total</span></div>
+<table class="data-table"><tr><th>Model</th><th style="text-align:right">Mean WAPE</th></tr>
+<tr class="best"><td>Exponential Smoothing</td><td class="num">53.18%</td></tr>
+<tr><td>Moving Average</td><td class="num">56.00%</td></tr>
+<tr><td>Tuned XGBoost</td><td class="num">57.61%</td></tr>
+<tr><td>Random Forest</td><td class="num">61.81%</td></tr>
+<tr><td>Original XGBoost</td><td class="num">62.43%</td></tr>
+<tr><td>Seasonal Naive</td><td class="num">67.44%</td></tr>
+<tr><td>Naive</td><td class="num">95.72%</td></tr></table>
+<div class="honest-note">The machine-learning model did not win. On sparse, noisy item-level demand, a simple statistical baseline beat tuned XGBoost, and the final forecast uses whichever model scored best in the backtests rather than assuming the more complex one should.</div></div>
+</div>
+<div class="row detail-body">
+  <h2>Method</h2>
+  <div class="content"><ul>
+<li><strong>Validation:</strong> checked duplicate identifiers, calendar and price key uniqueness, and consistency between the validation and evaluation series.</li>
+<li><strong>No leakage:</strong> products were selected using only the earliest training window, and all lag and rolling features use past observations only.</li>
+<li><strong>Metrics:</strong> MAE, RMSE, WAPE and forecast bias, reported per window with standard deviation so stability is visible, not just the average.</li>
+<li><strong>Tuning:</strong> three bounded XGBoost configurations compared with time-aware validation.</li>
+<li><strong>Inventory:</strong> 7-day lead time, 7-day review period and 95% service level as explicit assumptions, then re-run at other lead times and service levels.</li>
+</ul></div>
+</div>
+<div class="row detail-body">
+  <h2>Limits of the data</h2>
+  <div class="content"><p>This is a focused demonstration, not a full M5 competition solution: one store (CA_1) and six selected item-store series, one of which lacked complete evaluation history and was excluded from the final forecast. The tuned XGBoost score is a model-selection result, not an untouched test score. Lead time, review period, service level and on-hand stock are scenario assumptions, so the order quantities are illustrative rather than purchasing advice.</p></div>
+</div>
+<div class="row detail-body">
+  <h2>What I'd add next</h2>
+  <div class="content"><ul>
+<li>Scale to all stores and a hierarchical reconciliation of item, category and store forecasts.</li>
+<li>Probabilistic forecasts (quantile models) so safety stock comes from the forecast distribution rather than a normal approximation.</li>
+<li>Intermittent-demand methods such as Croston/TSB for the sparse series.</li>
+</ul></div>
+</div>
+<div class="row prevnext"><a href="projects.html">&larr; All projects</a><a href="project-credit-risk.html">Credit risk &amp; default prediction &rarr;</a></div>
+</main>
+<footer class="site-footer">
+  <div class="row footer-row">
+    <span>Aakash Lodha</span>
+    <span>Mumbai, India</span>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

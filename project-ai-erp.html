@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Assistant ERP — Aakash Lodha</title>
-<meta name="description" content="Full-stack ERP system with an integrated AI chatbot.">
+<title>RAG-based ERP assistant — Aakash Lodha</title>
+<meta name="description" content="A retrieval-augmented FAQ assistant using FAISS, Sentence Transformers, MongoDB and Gemini.">
 <meta name="author" content="Aakash Lodha">
-<meta property="og:title" content="AI Assistant ERP — Aakash Lodha">
-<meta property="og:description" content="Full-stack ERP system with an integrated AI chatbot.">
+<meta property="og:title" content="RAG-based ERP assistant — Aakash Lodha">
+<meta property="og:description" content="A retrieval-augmented FAQ assistant using FAISS, Sentence Transformers, MongoDB and Gemini.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aakash200411.github.io/Portfolio/">
 
@@ -35,28 +35,38 @@
 
 <div class="row"><a href="projects.html" class="back-link">&larr; All projects</a></div>
 <section class="row detail-head">
-  <p class="card-tools">React &middot; Node.js &middot; Express &middot; MongoDB</p>
-  <h1>AI Assistant ERP</h1>
-  <p class="detail-tagline">A full-stack ERP system with an AI chatbot layered on top, so users can query business and institutional data conversationally instead of digging through menus.</p>
+  <p class="card-tools">Python &middot; Flask &middot; Sentence Transformers &middot; FAISS &middot; MongoDB &middot; Gemini &middot; React</p>
+  <h1>RAG-based ERP assistant</h1>
+  <p class="detail-tagline">A retrieval-augmented FAQ assistant for an ERP system: it finds the most relevant FAQ record by meaning, then has an LLM answer using only that context.</p>
   <div class="detail-links"><a href="https://github.com/Aakash200411/AI_Assistant_ERP" target="_blank" rel="noopener">Repository</a></div>
 </section>
 <div class="row detail-body">
   <h2>Overview</h2>
-  <div class="content"><p>The system pairs a standard ERP backend (user, resource, and records management) with a chatbot that answers questions and handles FAQ-style requests directly, using an LLM API layered behind an Express backend.</p></div>
+  <div class="content"><p>Users of an ERP system usually have to dig through menus to find institutional information. This assistant lets them ask in natural language. A question is embedded, matched against stored FAQ records, and the best match is passed to Gemini as context so the answer stays grounded in the ERP&rsquo;s own data instead of the model&rsquo;s guess.</p></div>
+</div>
+<div class="row detail-body">
+  <h2>How retrieval works</h2>
+  <div class="content"><ul>
+<li><strong>Embeddings:</strong> FAQ questions are encoded with Sentence Transformers (<code>all-MiniLM-L6-v2</code>) and stored in a FAISS index.</li>
+<li><strong>Search:</strong> the user query is embedded and searched against the index; the closest FAQ (question, answer, category) becomes the context.</li>
+<li><strong>Generation:</strong> Gemini is prompted to answer only from that context, and to say it could not find the answer when the context is irrelevant.</li>
+<li><strong>Live updates:</strong> adding an FAQ in the UI writes to MongoDB and triggers an index rebuild (guarded by a thread lock), so new records are searchable without a restart.</li>
+<li><strong>Usage tracking:</strong> each matched FAQ has its hit count incremented in MongoDB.</li>
+</ul></div>
 </div>
 <div class="row detail-body">
   <h2>Architecture</h2>
   <div class="content"><ul>
-<li><strong>Frontend:</strong> React interface for both the chatbot and the underlying ERP dashboard.</li>
-<li><strong>Backend:</strong> Node.js and Express, handling routing, data models, and business logic.</li>
-<li><strong>AI layer:</strong> A separate service handling LLM API calls that the backend queries for chatbot responses.</li>
-<li><strong>Database:</strong> MongoDB for storing users, records, and FAQ data.</li>
+<li><strong>AI service:</strong> Python and Flask (<code>/query</code>, <code>/update_index</code>, <code>/health</code>).</li>
+<li><strong>Backend:</strong> Node.js and Express routes for ERP records and FAQ management, with MongoDB models.</li>
+<li><strong>Frontend:</strong> React (Vite, Tailwind) with a dashboard, FAQ form and chat interface.</li>
 </ul></div>
 </div>
 <div class="row detail-body">
-  <h2>What it does</h2>
-  <div class="content"><p>Instead of navigating through separate ERP screens to find attendance, resource, or user information, a user can ask the chatbot directly and get a routed, data-backed answer.</p></div>
+  <h2>Limits and next steps</h2>
+  <div class="content"><p>Retrieval currently passes only the single best match to the model, and there is no similarity cutoff beyond the model&rsquo;s own refusal. Next steps would be passing the top-k matches with a relevance threshold, and a small evaluation set to measure retrieval accuracy.</p></div>
 </div>
+
 </main>
 <footer class="site-footer">
   <div class="row footer-row">

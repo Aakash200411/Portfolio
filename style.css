@@ -2,14 +2,15 @@
    TOKENS
    ============================================ */
 :root {
-  --paper: #EDEEE6;
-  --panel: #E2E4D8;
-  --ink: #171F1A;
-  --ink-soft: #4B564E;
-  --line: #C6C9BB;
-  --amber: #B87621;
-  --rust: #9C3E29;
-  --teal: #2E6F63;
+  --paper: #FAF4E8;   /* cream */
+  --white: #FFFDF8;   /* warm white */
+  --panel: #F0E4CE;   /* beige */
+  --ink: #3A2A1E;     /* deep brown */
+  --ink-soft: #6E5846;/* soft brown */
+  --line: #DDCDB3;    /* sand line */
+  --amber: #8A5A33;   /* caramel brown accent */
+  --rust: #A0643F;    /* warm clay */
+  --teal: #7A4A28;    /* link brown */
 
   --serif: "Newsreader", Georgia, serif;
   --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -47,7 +48,7 @@ body {
 a {
   color: var(--teal);
   text-decoration: none;
-  border-bottom: 1px solid rgba(46, 111, 99, 0.35);
+  border-bottom: 1px solid rgba(122, 74, 40, 0.35);
   transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
 }
 a:hover { border-color: var(--teal); }
@@ -64,7 +65,7 @@ p { margin: 0 0 1em; }
 /* ============================================
    HEADER / NAV
    ============================================ */
-.site-header { border-bottom: 1px solid var(--line); padding: 22px 0; }
+.site-header { border-bottom: 1px solid var(--line); padding: 22px 0; background: var(--white); }
 .header-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
 
 .wordmark { font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--ink); border: none; }
@@ -75,8 +76,8 @@ p { margin: 0 0 1em; }
 .main-nav a:hover { color: var(--ink); border-bottom: 1px solid var(--ink-soft); }
 .main-nav a.active { color: var(--ink); border-bottom: 1px solid var(--amber); }
 
-.main-nav.nav-resume { color: #ffffff; background: #c47f2c; padding: 8px 16px; border: 1px solid var(--ink); }
-.nav-resume:hover { background: var(--amber); border-color: var(--amber); color: var(--paper); }
+.main-nav a.nav-resume { color: var(--white); background: var(--ink); padding: 8px 16px; border: 1px solid var(--ink); }
+.main-nav a.nav-resume:hover { background: var(--amber); border-color: var(--amber); color: var(--white); }
 
 /* ============================================
    SECTIONS (generic)
@@ -107,9 +108,9 @@ p { margin: 0 0 1em; }
   font-size: 15px;
   border-bottom: 1px solid var(--ink);
 }
-.btn:hover { background: var(--ink); color: var(--paper); }
-.btn-solid { background: var(--ink); color: var(--paper); }
-.btn-solid:hover { background: var(--amber); border-color: var(--amber); color: var(--paper); }
+.btn:hover { background: var(--ink); color: var(--white); }
+.btn-solid { background: var(--ink); color: var(--white); }
+.btn-solid:hover { background: var(--amber); border-color: var(--amber); color: var(--white); }
 
 /* ============================================
    HOME HERO
@@ -142,6 +143,7 @@ p { margin: 0 0 1em; }
   border-left: 1px solid var(--line);
 }
 .featured-tile {
+  background: var(--white);
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   padding: 28px 26px;
@@ -165,6 +167,7 @@ p { margin: 0 0 1em; }
   margin-top: 8px;
 }
 .project-card {
+  background: var(--white);
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   padding: 30px;
@@ -190,7 +193,7 @@ p { margin: 0 0 1em; }
 .detail-tagline { margin-top: 16px; max-width: 60ch; color: var(--ink-soft); font-size: 18px; }
 .detail-links { margin-top: 24px; display: flex; gap: 20px; font-size: 15px; }
 
-.detail-shot { width: 100%; height: auto; border: 1px solid var(--line); display: block; margin-bottom: 8px; }
+.detail-shot { background: var(--white); width: 100%; height: auto; border: 1px solid var(--line); display: block; margin-bottom: 8px; }
 .shot-caption { font-size: 13px; color: var(--ink-soft); margin: 10px 0 0; }
 
 .detail-body { padding: 50px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 200px 1fr; gap: 40px; }
@@ -259,7 +262,7 @@ p { margin: 0 0 1em; }
 /* ============================================
    FOOTER
    ============================================ */
-.site-footer { border-top: 1px solid var(--line); padding: 24px 0 40px; }
+.site-footer { border-top: 1px solid var(--line); padding: 24px 0 40px; background: var(--panel); }
 .footer-row { display: flex; justify-content: space-between; color: var(--ink-soft); font-size: 14px; }
 
 /* ============================================
@@ -277,3 +280,15 @@ p { margin: 0 0 1em; }
 @media (max-width: 520px) {
   .chart-bar-row { grid-template-columns: 90px 1fr 44px; font-size: 12px; }
 }
+
+/* ============================================
+   ADDITIONS (data science / AI repositioning)
+   ============================================ */
+.chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.chip { font-family: var(--mono); font-size: 12.5px; padding: 3px 10px; border: 1px solid var(--line); background: var(--white); color: var(--ink-soft); }
+.honest-note { border-left: 3px solid var(--amber); background: var(--white); padding: 14px 18px; font-size: 15px; color: var(--ink-soft); margin-top: 18px; }
+.data-table { border-collapse: collapse; width: 100%; max-width: 520px; font-size: 14.5px; margin: 6px 0; }
+.data-table th, .data-table td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--line); }
+.data-table th { color: var(--ink-soft); font-weight: 500; font-family: var(--sans); }
+.data-table td.num { font-family: var(--mono); text-align: right; }
+.data-table tr.best td { background: var(--panel); font-weight: 600; }

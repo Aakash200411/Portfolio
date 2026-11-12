@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VisioNiX — Aakash Lodha</title>
-<meta name="description" content="Multimodal AI assistant combining computer vision, OCR, and LLMs.">
+<meta name="description" content="Multimodal AI assistant with BLIP, YOLOv8, CLIP, docTR and Qwen-VL, with UI-based fine-tuning and Hugging Face deployment.">
 <meta name="author" content="Aakash Lodha">
 <meta property="og:title" content="VisioNiX — Aakash Lodha">
-<meta property="og:description" content="Multimodal AI assistant combining computer vision, OCR, and LLMs.">
+<meta property="og:description" content="Multimodal AI assistant with BLIP, YOLOv8, CLIP, docTR and Qwen-VL, with UI-based fine-tuning and Hugging Face deployment.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aakash200411.github.io/Portfolio/">
 
@@ -35,29 +35,35 @@
 
 <div class="row"><a href="projects.html" class="back-link">&larr; All projects</a></div>
 <section class="row detail-head">
-  <p class="card-tools">Python &middot; YOLOv8 &middot; OCR &middot; LLMs &middot; Team project</p>
+  <p class="card-tools">Python &middot; PyTorch &middot; BLIP &middot; YOLOv8 &middot; CLIP &middot; docTR &middot; Qwen-VL &middot; Team project</p>
   <h1>VisioNiX</h1>
-  <p class="detail-tagline">A multimodal AI assistant that combines computer vision, OCR, and large language models to understand images and hold context-aware conversations about them. Built with a 4-person team.</p>
-  <div class="detail-links"><a href="https://github.com/AryanKKate/VisioNiX" target="_blank" rel="noopener">Repository</a></div>
+  <p class="detail-tagline">A multimodal AI assistant that combines vision models, OCR and a vision-language model to understand images and hold conversations about them, plus a UI for fine-tuning and deploying custom models. Built with a 4-person team.</p>
+  <div class="detail-links"><a href="https://github.com/AryanKKate/VisioNiX" target="_blank" rel="noopener">Repository</a> <a href="https://vzipjournal.com/volume-13-issue-4-2026/" target="_blank" rel="noopener">Publication (VDI-Z)</a></div>
 </section>
-<div class="row"><div class="team-note">Built collaboratively with Aryan Kate, Bhuvan Patil, and Siddhesh Patil. <!-- Aakash: add a line here on your specific contribution (e.g. backend routes, auth, a particular model integration) once you confirm it --></div></div><div class="row detail-body">
+<div class="row"><div class="team-note">Built collaboratively with Aryan Kate, Bhuvan Patil, and Siddhesh Patil.</div></div><div class="row detail-body">
   <h2>Overview</h2>
-  <div class="content"><p>VisioNiX bridges traditional computer vision with LLM-based reasoning: it detects and captions objects in an image (YOLOv8), extracts printed and handwritten text (OCR, multilingual), and combines all of it with a vision-language model (LLaVA / BLIP-2) to answer questions about what's in the image and hold a conversation grounded in it.</p></div>
+  <div class="content"><p>VisioNiX runs every uploaded image through a stack of specialised models, then lets the user ask questions about it in a chat. The structured outputs ground the conversation so answers refer to what is actually in the image.</p></div>
 </div>
 <div class="row detail-body">
-  <h2>Capabilities</h2>
+  <h2>Analysis pipeline</h2>
   <div class="content"><ul>
-<li>Object detection and scene analysis via YOLOv8</li>
-<li>Multilingual OCR for printed and handwritten text</li>
-<li>Multimodal reasoning combining image, text, and detected objects</li>
-<li>Chat-based interface for visual question answering</li>
-<li>UI-based fine-tuning for domain-specific use cases, with auto-deployment to Hugging Face</li>
+<li><strong>Captioning:</strong> BLIP generates a natural-language description.</li>
+<li><strong>Object detection:</strong> YOLOv8 finds and labels objects.</li>
+<li><strong>OCR:</strong> docTR extracts printed and handwritten text.</li>
+<li><strong>Scene classification:</strong> a Places365 ResNet-18 labels the setting.</li>
+<li><strong>Image embeddings:</strong> normalised CLIP vectors feed a FAISS index for similarity search over previously analysed images.</li>
+<li><strong>Conversation:</strong> a Qwen vision-language model served through Ollama answers questions using the image and the extracted context.</li>
 </ul></div>
 </div>
 <div class="row detail-body">
-  <h2>My role</h2>
-  <div class="content"><p><!-- Aakash: fill in the specific part of the stack you owned here --></p></div>
+  <h2>Fine-tuning and deployment</h2>
+  <div class="content"><p>Users can upload their own dataset, choose a task (classification, detection or segmentation), set training parameters, and train a YOLOv8 model from the UI. Training runs as a background job with logged metrics, and the finished model can be published to the Hugging Face Hub and deployed as a Gradio Space with a generated model card.</p></div>
 </div>
+<div class="row detail-body">
+  <h2>Platform</h2>
+  <div class="content"><p>Python/Flask backend with JWT-based auth and Supabase for users, chat sessions and training-job records; React and Tailwind frontend.</p></div>
+</div>
+
 </main>
 <footer class="site-footer">
   <div class="row footer-row">

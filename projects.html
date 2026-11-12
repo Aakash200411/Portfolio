@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projects — Aakash Lodha</title>
-<meta name="description" content="Data analytics, machine learning, and software projects by Aakash Lodha.">
+<meta name="description" content="Machine learning, AI engineering and data analytics projects by Aakash Lodha.">
 <meta name="author" content="Aakash Lodha">
 <meta property="og:title" content="Projects — Aakash Lodha">
-<meta property="og:description" content="Data analytics, machine learning, and software projects by Aakash Lodha.">
+<meta property="og:description" content="Machine learning, AI engineering and data analytics projects by Aakash Lodha.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aakash200411.github.io/Portfolio/">
 
@@ -35,7 +35,53 @@
 
 <section class="row" style="padding-top:60px;">
   <h1 style="font-size:clamp(30px,4vw,42px);">Projects</h1>
-  <p style="margin-top:16px;max-width:60ch;color:var(--ink-soft);font-size:17.5px;">Grouped into the data &amp; analytics work I do most, and the broader software and AI projects I build for fun or with a team.</p>
+  <p style="margin-top:16px;max-width:60ch;color:var(--ink-soft);font-size:17.5px;">Machine learning and AI systems first, followed by the analytics work they grew out of.</p>
+</section>
+
+<section class="section">
+  <p class="row eyebrow-cat">Machine learning &amp; forecasting</p>
+  <div class="row" style="padding:0;">
+    <div class="project-grid">
+    <a class="project-card" href="project-retail-forecasting.html">
+      <p class="card-tools">Python, XGBoost, Statsmodels</p>
+      <h3>Retail demand forecasting &amp; inventory planning</h3>
+      <p>Rolling-origin backtests on the M5 dataset; Exponential Smoothing (53.2% WAPE) beat tuned XGBoost (57.6%), and the forecast feeds safety-stock and reorder planning.</p>
+      <span class="card-link">View project</span>
+    </a>
+    <a class="project-card" href="project-credit-risk.html">
+      <p class="card-tools">Python, Scikit-learn, XGBoost, SHAP</p>
+      <h3>Credit card default prediction</h3>
+      <p>30,000 customers, eight models compared by PR-AUC, with threshold analysis (92.77% recall at 0.10) and SHAP explanations.</p>
+      <span class="card-link">View project</span>
+    </a>
+    <a class="project-card" href="project-flight-delay.html">
+      <p class="card-tools">Python, Scikit-learn</p>
+      <h3>Flight delay prediction</h3>
+      <p>Compared four regression models across arrivals, departures, and combined data; no single model wins on every metric.</p>
+      <span class="card-link">View project</span>
+    </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <p class="row eyebrow-cat">AI engineering &amp; LLM systems</p>
+  <div class="row" style="padding:0;">
+    <div class="project-grid">
+    <a class="project-card" href="project-ai-erp.html">
+      <p class="card-tools">Python, Flask, FAISS, MongoDB, Gemini</p>
+      <h3>RAG-based ERP assistant</h3>
+      <p>Sentence-Transformer embeddings and FAISS retrieval ground Gemini&rsquo;s answers in an ERP&rsquo;s FAQ data, with live index updates.</p>
+      <span class="card-link">View project</span>
+    </a>
+    <a class="project-card" href="project-visionix.html">
+      <p class="card-tools">PyTorch, YOLOv8, BLIP, CLIP, Qwen-VL</p>
+      <h3>VisioNiX</h3>
+      <p>A multimodal assistant combining captioning, detection, OCR and a vision-language model, with UI-based fine-tuning and Hugging Face deployment. Built with a 4-person team.</p>
+      <span class="card-link">View project</span>
+    </a>
+    </div>
+  </div>
 </section>
 
 <section class="section">
@@ -45,74 +91,49 @@
     <a class="project-card" href="project-olist.html">
       <p class="card-tools">SQL, Python, Statistics, Tableau</p>
       <h3>Olist e-commerce analytics</h3>
-      <p>Analyzed 96K+ real marketplace orders using SQL and Python, then added 3 Tableau dashboards covering delivery KPIs, delay severity, state-level performance, and recommended actions.</p>
-      <span class="card-link">View project</span>
-    </a>
-    <a class="project-card" href="project-sql-saas.html">
-      <p class="card-tools">PostgreSQL, SQL, Python</p>
-      <h3>SaaS subscription analytics</h3>
-      <p>A 6-table SQL project on a live Postgres database, using synthetic data — joins, CTEs, and window functions to find that early engagement predicts churn better than plan tier.</p>
+      <p>Analyzed 96K+ marketplace orders using SQL and Python, then added 3 Tableau dashboards covering delivery KPIs, delay severity and recommended actions.</p>
       <span class="card-link">View project</span>
     </a>
     <a class="project-card" href="project-telecom-churn.html">
       <p class="card-tools">Power BI, DAX, Power Query</p>
       <h3>Telecom customer churn analysis</h3>
-      <p>Month-to-month customers churn at 46.3% vs 2.8% on two-year plans and make up 88% of all churners — plus a 475-customer save list.</p>
+      <p>Month-to-month customers churn at 46.3% vs 2.8% on two-year plans and make up 88% of all churners, plus a 475-customer save list.</p>
       <span class="card-link">View project</span>
     </a>
     <a class="project-card" href="project-hr-attrition.html">
       <p class="card-tools">Power BI, DAX, Power Query</p>
       <h3>HR attrition analytics</h3>
-      <p>Overtime staff leave at 3× the rate of everyone else, and one risk profile reaches 68% — plus a 73-person at-risk list.</p>
+      <p>Overtime staff leave at 3&times; the rate of everyone else, and one risk profile reaches 68%, plus a 73-person at-risk list.</p>
+      <span class="card-link">View project</span>
+    </a>
+    <a class="project-card" href="project-sql-saas.html">
+      <p class="card-tools">PostgreSQL, SQL, Python</p>
+      <h3>SaaS subscription analytics</h3>
+      <p>A 6-table SQL project on synthetic data using joins, CTEs and window functions to find that early engagement predicts churn better than plan tier.</p>
       <span class="card-link">View project</span>
     </a>
     <a class="project-card" href="project-ecommerce.html">
       <p class="card-tools">Python, Pandas, Plotly</p>
       <h3>E-commerce sales &amp; margin analysis</h3>
-      <p>Furniture nearly matches Technology in revenue but converts a fraction of the margin — a pricing problem hiding behind a sales number.</p>
-      <span class="card-link">View project</span>
-    </a>
-    <a class="project-card" href="project-flight-delay.html">
-      <p class="card-tools">Python, Scikit-learn</p>
-      <h3>Flight delay prediction</h3>
-      <p>Compared four regression models across arrivals, departures, and combined data — no single model wins on every metric.</p>
+      <p>Furniture nearly matches Technology in revenue but converts a fraction of the margin.</p>
       <span class="card-link">View project</span>
     </a>
     <a class="project-card" href="project-t20-worldcup.html">
       <p class="card-tools">Python, Pandas, Streamlit</p>
       <h3>T20 World Cup 2024 analysis</h3>
-      <p>Built a data-driven Dream Team from ball-by-ball match data, ranking players by boundary percentage rather than reputation.</p>
+      <p>A data-driven Dream Team from ball-by-ball data, ranking players by boundary percentage rather than reputation.</p>
+      <span class="card-link">View project</span>
+    </a>
+    <a class="project-card" href="project-cms.html">
+      <p class="card-tools">PHP, MySQL, JavaScript</p>
+      <h3>Content Management System</h3>
+      <p>A role-based CMS for users, attendance, marks and academic resources, the system behind my VESIT internship work.</p>
       <span class="card-link">View project</span>
     </a>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <p class="row eyebrow-cat">Software &amp; AI engineering</p>
-  <div class="row" style="padding:0;">
-    <div class="project-grid">
-    <a class="project-card" href="project-visionix.html">
-      <p class="card-tools">Python, YOLOv8, LLMs</p>
-      <h3>VisioNiX</h3>
-      <p>A multimodal AI assistant combining computer vision, OCR, and LLMs for visual question answering — built with a 4-person team.</p>
-      <span class="card-link">View project</span>
-    </a>
-    <a class="project-card" href="project-ai-erp.html">
-      <p class="card-tools">React, Node.js, Express, MongoDB</p>
-      <h3>AI Assistant ERP</h3>
-      <p>An AI chatbot layered on top of an ERP system, handling FAQ-style queries and business data through one conversational interface.</p>
-      <span class="card-link">View project</span>
-    </a>
-    <a class="project-card" href="project-cms.html">
-      <p class="card-tools">PHP, MySQL, JavaScript</p>
-      <h3>Content Management System</h3>
-      <p>A role-based CMS for managing users, attendance, marks, and academic resources — the system behind my VESIT internship work.</p>
-      <span class="card-link">View project</span>
-    </a>
-    </div>
-  </div>
-</section>
 </main>
 <footer class="site-footer">
   <div class="row footer-row">
